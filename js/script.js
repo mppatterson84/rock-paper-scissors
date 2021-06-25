@@ -3,6 +3,7 @@ const fight = document.querySelector('#fight');
 const choiceDisplay = document.querySelectorAll('.choice-display');
 const resultIcon = document.querySelectorAll('.result-icon');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
+const comChoiceBtn = document.querySelectorAll('.com-choice-btn');
 var playerChoice;
 
 // radio button functionality
@@ -89,7 +90,7 @@ fight.addEventListener('click', () => {
                 });
             }
         },
-        550,
+        600,
         8
     );
 });
