@@ -5,6 +5,17 @@ const resultIcon = document.querySelectorAll('.result-icon');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
 const comChoiceBtn = document.querySelectorAll('.com-choice-btn');
 var playerChoice;
+var gameObject = [
+    { name: 'Rock', damage: 'crushes', class: 'fa-hand-rock' },
+    { name: 'Paper', damage: 'covers', class: 'fa-hand-paper' },
+    { name: 'Scissors', damage: 'cuts', class: 'fa-hand-scissors' }
+];
+
+function comChoice() {
+    var randomNum = Math.floor(Math.random() * 3);
+    var randomChoice = gameObject[randomNum];
+    return randomChoice;
+}
 
 // radio button functionality
 playerChoiceBtn.forEach(function (choice, index) {
@@ -35,14 +46,17 @@ function setIntervalX(callback, delay, repetitions) {
 }
 
 fight.addEventListener('click', () => {
+    var comSelection = comChoice();
+    // console.log(comSelection);
     fight.disabled = true;
     displayIcon.hidden = false;
-    resultIcon[0].hidden = true;
-    resultIcon[0].classList.add('fa-thumbs-up');
-    resultIcon[0].classList.remove('fa-hand-rock');
-    resultIcon[0].classList.remove('fa-hand-paper');
-    resultIcon[0].classList.remove('fa-hand-scissors');
-    resultIcon[1].hidden = true;
+    resultIcon.forEach(function (icon) {
+        icon.hidden = true;
+        icon.classList.add('fa-thumbs-up');
+        icon.classList.remove('fa-hand-rock');
+        icon.classList.remove('fa-hand-paper');
+        icon.classList.remove('fa-hand-scissors');
+    });
     playerChoiceBtn.forEach(function (button) {
         button.disabled = true;
     });
@@ -81,7 +95,7 @@ fight.addEventListener('click', () => {
                 }
                 resultIcon[0].hidden = false;
                 resultIcon[1].classList.remove('fa-thumbs-up');
-                resultIcon[1].classList.add('fa-hand-rock');
+                resultIcon[1].classList.add(comSelection.class);
                 resultIcon[1].hidden = false;
                 playerChoiceBtn.forEach(function (button) {
                     button.classList.remove('btn-outline-success');
