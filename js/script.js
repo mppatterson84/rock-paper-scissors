@@ -36,6 +36,10 @@ fight.addEventListener('click', () => {
     fight.disabled = true;
     displayIcon.hidden = false;
     resultIcon[0].hidden = true;
+    resultIcon[0].classList.add('fa-thumbs-up');
+    resultIcon[0].classList.remove('fa-hand-rock');
+    resultIcon[0].classList.remove('fa-hand-paper');
+    resultIcon[0].classList.remove('fa-hand-scissors');
     resultIcon[1].hidden = true;
     choiceDisplay[1].textContent = '1, 2, 3...';
 
@@ -63,7 +67,13 @@ fight.addEventListener('click', () => {
                 displayIcon.classList.add('fa-thumbs-up');
                 displayIcon.hidden = true;
                 resultIcon[0].classList.remove('fa-thumbs-up');
-                resultIcon[0].classList.add('fa-hand-paper');
+                if (playerChoice === 0) {
+                    resultIcon[0].classList.add('fa-hand-rock');
+                } else if (playerChoice === 1) {
+                    resultIcon[0].classList.add('fa-hand-paper');
+                } else if (playerChoice === 2) {
+                    resultIcon[0].classList.add('fa-hand-scissors');
+                }
                 resultIcon[0].hidden = false;
                 resultIcon[1].classList.remove('fa-thumbs-up');
                 resultIcon[1].classList.add('fa-hand-rock');
