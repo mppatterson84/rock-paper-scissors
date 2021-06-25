@@ -13,6 +13,7 @@ playerChoiceBtn.forEach(function (choice, index) {
             if (playerChoiceBtn[i] == choice) {
                 choice.classList.remove('btn-outline-secondary');
                 choice.classList.add('btn-outline-success');
+                fight.disabled = false;
             } else {
                 playerChoiceBtn[i].classList.remove('btn-outline-success');
                 playerChoiceBtn[i].classList.add('btn-outline-secondary');
@@ -41,6 +42,9 @@ fight.addEventListener('click', () => {
     resultIcon[0].classList.remove('fa-hand-paper');
     resultIcon[0].classList.remove('fa-hand-scissors');
     resultIcon[1].hidden = true;
+    playerChoiceBtn.forEach(function (button) {
+        button.disabled = true;
+    });
     choiceDisplay[1].textContent = '1, 2, 3...';
 
     let i = 0;
@@ -78,7 +82,11 @@ fight.addEventListener('click', () => {
                 resultIcon[1].classList.remove('fa-thumbs-up');
                 resultIcon[1].classList.add('fa-hand-rock');
                 resultIcon[1].hidden = false;
-                fight.disabled = false;
+                playerChoiceBtn.forEach(function (button) {
+                    button.classList.remove('btn-outline-success');
+                    button.classList.add('btn-outline-secondary');
+                    button.disabled = false;
+                });
             }
         },
         550,
