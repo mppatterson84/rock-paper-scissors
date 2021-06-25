@@ -2,6 +2,22 @@ const displayIcon = document.querySelector('#display-icon');
 const fight = document.querySelector('#fight');
 const rcpDisplay = document.querySelector('#rpc-display');
 const resultIcon = document.querySelectorAll('.result-icon');
+const playerChoice = document.querySelectorAll('.player-choice');
+
+// radio button functionality
+playerChoice.forEach(function (choice, index) {
+    choice.addEventListener('click', function () {
+        for (let i = 0; i < playerChoice.length; i++) {
+            if (playerChoice[i] == choice) {
+                choice.classList.remove('btn-outline-secondary');
+                choice.classList.add('btn-outline-success');
+            } else {
+                playerChoice[i].classList.remove('btn-outline-success');
+                playerChoice[i].classList.add('btn-outline-secondary');
+            }
+        }
+    });
+});
 
 function setIntervalX(callback, delay, repetitions) {
     var x = 0;
