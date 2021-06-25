@@ -1,6 +1,6 @@
 const displayIcon = document.querySelector('#display-icon');
 const fight = document.querySelector('#fight');
-const rcpDisplay = document.querySelector('#rpc-display');
+const choiceDisplay = document.querySelectorAll('.choice-display');
 const resultIcon = document.querySelectorAll('.result-icon');
 const playerChoice = document.querySelectorAll('.player-choice');
 
@@ -35,28 +35,28 @@ fight.addEventListener('click', () => {
     displayIcon.hidden = false;
     resultIcon[0].hidden = true;
     resultIcon[1].hidden = true;
-    rcpDisplay.textContent = '1, 2, 3...';
+    choiceDisplay[1].textContent = '1, 2, 3...';
 
     let i = 0;
     setIntervalX(
         function () {
             displayIcon.classList.toggle('animate__bounce');
             i++;
-            console.log(i);
+            // console.log(i);
             if (i === 2) {
-                rcpDisplay.textContent = 'Rock!';
+                choiceDisplay[1].textContent = 'Rock!';
                 displayIcon.classList.remove('fa-thumbs-up');
                 displayIcon.classList.add('fa-hand-rock');
             } else if (i === 4) {
-                rcpDisplay.textContent = 'Paper!';
+                choiceDisplay[1].textContent = 'Paper!';
                 displayIcon.classList.remove('fa-hand-rock');
                 displayIcon.classList.add('fa-hand-paper');
             } else if (i === 6) {
-                rcpDisplay.textContent = 'Scissors!';
+                choiceDisplay[1].textContent = 'Scissors!';
                 displayIcon.classList.remove('fa-hand-paper');
                 displayIcon.classList.add('fa-hand-scissors');
             } else if (i === 8) {
-                rcpDisplay.textContent = 'Winner is...';
+                choiceDisplay[1].textContent = 'Winner is...';
                 displayIcon.classList.remove('fa-hand-scissors');
                 displayIcon.classList.add('fa-thumbs-up');
                 displayIcon.hidden = true;
