@@ -2,18 +2,20 @@ const displayIcon = document.querySelector('#display-icon');
 const fight = document.querySelector('#fight');
 const choiceDisplay = document.querySelectorAll('.choice-display');
 const resultIcon = document.querySelectorAll('.result-icon');
-const playerChoice = document.querySelectorAll('.player-choice');
+const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
+var playerChoice;
 
 // radio button functionality
-playerChoice.forEach(function (choice, index) {
+playerChoiceBtn.forEach(function (choice, index) {
     choice.addEventListener('click', function () {
-        for (let i = 0; i < playerChoice.length; i++) {
-            if (playerChoice[i] == choice) {
+        playerChoice = index;
+        for (let i = 0; i < playerChoiceBtn.length; i++) {
+            if (playerChoiceBtn[i] == choice) {
                 choice.classList.remove('btn-outline-secondary');
                 choice.classList.add('btn-outline-success');
             } else {
-                playerChoice[i].classList.remove('btn-outline-success');
-                playerChoice[i].classList.add('btn-outline-secondary');
+                playerChoiceBtn[i].classList.remove('btn-outline-success');
+                playerChoiceBtn[i].classList.add('btn-outline-secondary');
             }
         }
     });
