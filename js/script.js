@@ -1,5 +1,5 @@
 const displayIcon = document.querySelector('#display-icon');
-const fight = document.querySelector('#fight');
+const go = document.querySelector('#go');
 const choiceDisplay = document.querySelectorAll('.choice-display');
 const resultIcon = document.querySelectorAll('.result-icon');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
@@ -25,7 +25,7 @@ playerChoiceBtn.forEach(function (choice, index) {
             if (playerChoiceBtn[i] == choice) {
                 choice.classList.remove('btn-outline-secondary');
                 choice.classList.add('btn-outline-success');
-                fight.disabled = false;
+                go.disabled = false;
                 resultIcon.forEach(function (icon) {
                     icon.hidden = true;
                     icon.classList.add('fa-thumbs-up');
@@ -58,10 +58,10 @@ function setIntervalX(callback, delay, repetitions) {
     }, delay);
 }
 
-fight.addEventListener('click', () => {
+go.addEventListener('click', () => {
     var comSelection = comChoice();
     // console.log(comSelection);
-    fight.disabled = true;
+    go.disabled = true;
     displayIcon.hidden = false;
     resultIcon.forEach(function (icon) {
         icon.hidden = true;
