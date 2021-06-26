@@ -80,6 +80,31 @@ fight.addEventListener('click', () => {
         function () {
             displayIcon.classList.toggle('animate__bounce');
             i++;
+
+            setIntervalX(
+                function () {
+                    comChoiceBtn.forEach(function (choice) {
+                        if (comChoiceBtn[(i - 1) % 3] == choice) {
+                            choice.classList.remove('btn-outline-secondary');
+                            choice.classList.add('btn-success');
+                        } else {
+                            for (let j = 0; j < comChoiceBtn.length; j++) {
+                                if ((i - 1) % 3 != j) {
+                                    comChoiceBtn[j].classList.add(
+                                        'btn-outline-secondary'
+                                    );
+                                    comChoiceBtn[j].classList.remove(
+                                        'btn-success'
+                                    );
+                                }
+                            }
+                        }
+                    });
+                },
+                200,
+                3
+            );
+
             // console.log(i);
             if (i === 2) {
                 choiceDisplay[1].textContent = 'Rock!';
