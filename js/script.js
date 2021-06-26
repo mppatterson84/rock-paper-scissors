@@ -87,6 +87,11 @@ fight.addEventListener('click', () => {
                         if (comChoiceBtn[(i - 1) % 3] == choice) {
                             choice.classList.remove('btn-outline-secondary');
                             choice.classList.add('btn-success');
+                        } else if (i == 8) {
+                            comChoiceBtn.forEach(function (button) {
+                                button.classList.remove('btn-success');
+                                button.classList.add('btn-outline-secondary');
+                            });
                         } else {
                             for (let j = 0; j < comChoiceBtn.length; j++) {
                                 if ((i - 1) % 3 != j) {
