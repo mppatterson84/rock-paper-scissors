@@ -1,6 +1,6 @@
 div.row {
-    height: 90vh;
+    height: 80vh;
 }
-aside > button {
-    width: 80px;
+button.btn {
+    min-width: 80px;
 }
