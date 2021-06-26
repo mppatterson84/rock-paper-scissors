@@ -1,14 +1,15 @@
 const displayIcon = document.querySelector('#display-icon');
 const go = document.querySelector('#go');
+const playAgain = document.querySelector('#play-again');
 const choiceDisplay = document.querySelectorAll('.choice-display');
 const resultIcon = document.querySelectorAll('.result-icon');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
 const comChoiceBtn = document.querySelectorAll('.com-choice-btn');
 var playerChoice;
 var gameObject = [
-    { name: 'Rock', damage: 'crushes', class: 'fa-hand-rock' },
-    { name: 'Paper', damage: 'covers', class: 'fa-hand-paper' },
-    { name: 'Scissors', damage: 'cuts', class: 'fa-hand-scissors' }
+    { index: 0, name: 'Rock', damage: 'crushes', class: 'fa-hand-rock' },
+    { index: 1, name: 'Paper', damage: 'covers', class: 'fa-hand-paper' },
+    { index: 2, name: 'Scissors', damage: 'cuts', class: 'fa-hand-scissors' }
 ];
 
 function comChoice() {
@@ -25,6 +26,7 @@ playerChoiceBtn.forEach(function (choice, index) {
             if (playerChoiceBtn[i] == choice) {
                 choice.classList.remove('btn-outline-secondary');
                 choice.classList.add('btn-success');
+                choiceDisplay[0].textContent = `Player chooses ${gameObject[playerChoice].name}.`;
                 go.disabled = false;
                 resultIcon.forEach(function (icon) {
                     icon.hidden = true;
@@ -89,8 +91,19 @@ go.addEventListener('click', () => {
                             choice.classList.add('btn-success');
                         } else if (i == 8) {
                             comChoiceBtn.forEach(function (button) {
-                                button.classList.remove('btn-success');
-                                button.classList.add('btn-outline-secondary');
+                                if (
+                                    comChoiceBtn[comSelection.index] == button
+                                ) {
+                                    button.classList.add('btn-success');
+                                    button.classList.remove(
+                                        'btn-outline-secondary'
+                                    );
+                                } else {
+                                    button.classList.remove('btn-success');
+                                    button.classList.add(
+                                        'btn-outline-secondary'
+                                    );
+                                }
                             });
                         } else {
                             for (let j = 0; j < comChoiceBtn.length; j++) {
@@ -124,7 +137,10 @@ go.addEventListener('click', () => {
                 displayIcon.classList.remove('fa-hand-paper');
                 displayIcon.classList.add('fa-hand-scissors');
             } else if (i === 8) {
-                choiceDisplay[1].textContent = 'Winner is...';
+                choiceDisplay[2].textContent = `Computer chooses ${comSelection.name}.`;
+                choiceDisplay[1].textContent = `Player chooses ${gameObject[playerChoice].name}, Computer chooses ${comSelection.name}`;
+                go.hidden = true;
+                playAgain.hidden = false;
                 displayIcon.classList.remove('fa-hand-scissors');
                 displayIcon.classList.add('fa-thumbs-up');
                 displayIcon.hidden = true;
@@ -140,14 +156,25 @@ go.addEventListener('click', () => {
                 resultIcon[1].classList.remove('fa-thumbs-up');
                 resultIcon[1].classList.add(comSelection.class);
                 resultIcon[1].hidden = false;
-                playerChoiceBtn.forEach(function (button) {
-                    button.classList.remove('btn-success');
-                    button.classList.add('btn-outline-secondary');
-                    button.disabled = false;
-                });
             }
         },
         600,
         8
     );
+});
+
+playAgain.addEventListener('click', function () {
+    playerChoiceBtn.forEach(function (button) {
+        button.classList.remove('btn-success');
+        button.classList.add('btn-outline-secondary');
+        button.disabled = false;
+    });
+    comChoiceBtn.forEach(function (button) {
+        button.classList.remove('btn-success');
+        button.classList.add('btn-outline-secondary');
+    });
+    choiceDisplay[0].textContent = `Make your choice.`;
+    choiceDisplay[2].textContent = `Computer chooses randomly.`;
+    playAgain.hidden = true;
+    go.hidden = false;
 });
