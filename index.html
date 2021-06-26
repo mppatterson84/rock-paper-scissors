@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="/css/lib/bootstrap.custom.min.css" />
-        <!-- Animate.css -->
-        <link rel="stylesheet" href="/css/lib/animate.custom.min.css" />
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="/css/lib/all.min.css" />
-        <!-- Base CSS -->
-        <link rel="stylesheet" href="/css/style.css" />
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Rock Paper Scissors</title>
-    </head>
-    <body>
-        <h1 class="text-center py-2">Rock Paper Scissors</h1>
-        <div class="container">
-            <div class="row">
-                <aside class="col-sm-3 d-flex flex-column align-items-center justify-content-center">
-                    <h2>Player</h2>
-                    <p class="choice-display">Make your choice.</p>
-                    <div class="d-flex flex-row flex-sm-column align-items-center justify-content-center">
-                        <button class="player-choice-btn m-1 btn btn-outline-secondary"><i class="far fa-hand-rock fa-2x"></i></button>
-                        <button class="player-choice-btn m-1 btn btn-outline-secondary"><i class="far fa-hand-paper fa-2x"></i></button>
-                        <button class="player-choice-btn m-1 btn btn-outline-secondary"><i class="far fa-hand-scissors fa-2x"></i></button>
-                    </div>
-                </aside>
-                <main
-                    class="
-                        col-sm-6
-                        d-flex
-                        align-items-center
-                        justify-content-center
-                    "
-                >
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/lib/bootstrap.custom.min.css" />
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/lib/animate.custom.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/css/lib/all.min.css" />
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <h1 class="text-center py-2">Rock Paper Scissors</h1>
+    <div class="container">
+        <div class="row">
+            <aside class="col-sm-3 d-flex flex-column align-items-center justify-content-center">
+                <h2>Player</h2>
+                <p class="choice-display">Make your choice.</p>
+                <div class="d-flex flex-row flex-sm-column align-items-center justify-content-center">
+                    <button class="player-choice-btn m-1 btn btn-outline-secondary"><i
+                            class="far fa-hand-rock fa-2x"></i></button>
+                    <button class="player-choice-btn m-1 btn btn-outline-secondary"><i
+                            class="far fa-hand-paper fa-2x"></i></button>
+                    <button class="player-choice-btn m-1 btn btn-outline-secondary"><i
+                            class="far fa-hand-scissors fa-2x"></i></button>
+                </div>
+            </aside>
+            <main class="col-sm-6 d-flex align-items-center justify-content-center">
                 <div class="text-center">
                     <i id="display-icon" class="far fa-thumbs-up fa-5x p-3 my-3 animate__animated"></i>
                     <i hidden class="far fa-thumbs-up fa-5x p-3 my-3 animate__animated result-icon"></i>
@@ -45,22 +43,26 @@
                     <button disabled id="go" class="btn btn-danger m-3">Go!</button>
                     <button hidden id="play-again" class="btn btn-success m-3">Play Again</button>
                 </div>
-                </main>
-                <aside class="col-sm-3 d-flex flex-column align-items-center justify-content-center">
-                    <h2>Computer</h2>
-                    <p class="choice-display">Computer chooses randomly.</p>
-                    <div class="d-flex flex-row flex-sm-column align-items-center justify-content-center">
-                        <button class="com-choice-btn m-1 btn btn-outline-secondary"><i class="far fa-hand-rock fa-2x"></i></button>
-                        <button class="com-choice-btn m-1 btn btn-outline-secondary"><i class="far fa-hand-paper fa-2x"></i></button>
-                        <button class="com-choice-btn m-1 btn btn-outline-secondary"><i class="far fa-hand-scissors fa-2x"></i></button>
-                    </div>
-                </aside>
-            </div>
+            </main>
+            <aside class="col-sm-3 d-flex flex-column align-items-center justify-content-center">
+                <h2>Computer</h2>
+                <p class="choice-display">Computer chooses randomly.</p>
+                <div class="d-flex flex-row flex-sm-column align-items-center justify-content-center">
+                    <button class="com-choice-btn m-1 btn btn-outline-secondary"><i
+                            class="far fa-hand-rock fa-2x"></i></button>
+                    <button class="com-choice-btn m-1 btn btn-outline-secondary"><i
+                            class="far fa-hand-paper fa-2x"></i></button>
+                    <button class="com-choice-btn m-1 btn btn-outline-secondary"><i
+                            class="far fa-hand-scissors fa-2x"></i></button>
+                </div>
+            </aside>
         </div>
+    </div>
 
-        <!-- Bootstrap Bundle with Popper -->
-        <script src="/js/lib/bootstrap.bundle.min.js"></script>
-        <!-- Base JS -->
-        <script src="/js/script.js"></script>
-    </body>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="/js/lib/bootstrap.bundle.min.js"></script>
+    <!-- Base JS -->
+    <script src="/js/script.js"></script>
+</body>
+
 </html>
