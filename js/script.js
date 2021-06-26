@@ -26,6 +26,19 @@ playerChoiceBtn.forEach(function (choice, index) {
                 choice.classList.remove('btn-outline-secondary');
                 choice.classList.add('btn-outline-success');
                 fight.disabled = false;
+                resultIcon.forEach(function (icon) {
+                    icon.hidden = true;
+                    icon.classList.add('fa-thumbs-up');
+                    icon.classList.remove('fa-hand-rock');
+                    icon.classList.remove('fa-hand-paper');
+                    icon.classList.remove('fa-hand-scissors');
+                });
+                displayIcon.hidden = false;
+                choiceDisplay[1].textContent = 'Ready?';
+                comChoiceBtn.forEach(function (button) {
+                    button.classList.remove('btn-success');
+                    button.classList.add('btn-outline-secondary');
+                });
             } else {
                 playerChoiceBtn[i].classList.remove('btn-outline-success');
                 playerChoiceBtn[i].classList.add('btn-outline-secondary');
