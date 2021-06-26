@@ -12,6 +12,7 @@ var gameObject = [
     { index: 2, name: 'Scissors', damage: 'cuts', class: 'fa-hand-scissors' }
 ];
 
+// random computer choice
 function comChoice() {
     var randomNum = Math.floor(Math.random() * 3);
     var randomChoice = gameObject[randomNum];
@@ -85,6 +86,7 @@ go.addEventListener('click', () => {
             displayIcon.classList.toggle('animate__bounce');
             i++;
 
+            // cycle the btn-success class over the com choice buttons
             setIntervalX(
                 function () {
                     comChoiceBtn.forEach(function (choice) {
@@ -126,6 +128,7 @@ go.addEventListener('click', () => {
             );
 
             // console.log(i);
+            // do stuff on specific interval iterations
             if (i === 2) {
                 choiceDisplay[1].textContent = 'Rock!';
                 displayIcon.classList.remove('fa-thumbs-up');
@@ -140,7 +143,6 @@ go.addEventListener('click', () => {
                 displayIcon.classList.add('fa-hand-scissors');
             } else if (i === 8) {
                 choiceDisplay[2].textContent = `Computer chooses ${comSelection.name}.`;
-                // choiceDisplay[1].textContent = `Player chooses ${playerSelection.name}, Computer chooses ${comSelection.name}`;
 
                 // game logic
                 if (playerSelection.name === comSelection.name) {
@@ -172,6 +174,7 @@ go.addEventListener('click', () => {
                     }
                 }
 
+                // result
                 go.hidden = true;
                 playAgain.hidden = false;
                 displayIcon.classList.remove('fa-hand-scissors');
@@ -196,6 +199,7 @@ go.addEventListener('click', () => {
     );
 });
 
+// reset after a play
 playAgain.addEventListener('click', function () {
     playerChoiceBtn.forEach(function (button) {
         button.classList.remove('btn-success');
