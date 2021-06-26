@@ -24,7 +24,7 @@ playerChoiceBtn.forEach(function (choice, index) {
         for (let i = 0; i < playerChoiceBtn.length; i++) {
             if (playerChoiceBtn[i] == choice) {
                 choice.classList.remove('btn-outline-secondary');
-                choice.classList.add('btn-outline-success');
+                choice.classList.add('btn-success');
                 go.disabled = false;
                 resultIcon.forEach(function (icon) {
                     icon.hidden = true;
@@ -40,7 +40,7 @@ playerChoiceBtn.forEach(function (choice, index) {
                     button.classList.add('btn-outline-secondary');
                 });
             } else {
-                playerChoiceBtn[i].classList.remove('btn-outline-success');
+                playerChoiceBtn[i].classList.remove('btn-success');
                 playerChoiceBtn[i].classList.add('btn-outline-secondary');
             }
         }
@@ -141,7 +141,7 @@ go.addEventListener('click', () => {
                 resultIcon[1].classList.add(comSelection.class);
                 resultIcon[1].hidden = false;
                 playerChoiceBtn.forEach(function (button) {
-                    button.classList.remove('btn-outline-success');
+                    button.classList.remove('btn-success');
                     button.classList.add('btn-outline-secondary');
                     button.disabled = false;
                 });
