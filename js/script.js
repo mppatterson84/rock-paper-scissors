@@ -62,7 +62,9 @@ function setIntervalX(callback, delay, repetitions) {
 
 go.addEventListener('click', () => {
     var comSelection = comChoice();
-    // console.log(comSelection);
+    var playerSelection = gameObject[playerChoice];
+    // console.log(playerSelection.name);
+    // console.log(comSelection.name);
     go.disabled = true;
     displayIcon.hidden = false;
     resultIcon.forEach(function (icon) {
@@ -138,7 +140,38 @@ go.addEventListener('click', () => {
                 displayIcon.classList.add('fa-hand-scissors');
             } else if (i === 8) {
                 choiceDisplay[2].textContent = `Computer chooses ${comSelection.name}.`;
-                choiceDisplay[1].textContent = `Player chooses ${gameObject[playerChoice].name}, Computer chooses ${comSelection.name}`;
+                // choiceDisplay[1].textContent = `Player chooses ${playerSelection.name}, Computer chooses ${comSelection.name}`;
+
+                // game logic
+                if (playerSelection.name === comSelection.name) {
+                    choiceDisplay[1].textContent = "It's a Draw";
+                } else if (playerSelection.name === 'Rock') {
+                    console.log('you rock');
+                    if (comSelection.name === 'Paper') {
+                        choiceDisplay[1].textContent =
+                            'Computer Wins: Paper covers Rock.';
+                    } else if (comSelection.name === 'Scissors') {
+                        choiceDisplay[1].textContent =
+                            'Player Wins: Rock crushes Scissors.';
+                    }
+                } else if (playerSelection.name === 'Paper') {
+                    if (comSelection.name === 'Scissors') {
+                        choiceDisplay[1].textContent =
+                            'Computer Wins: Scissors cuts Paper.';
+                    } else if (comSelection.name === 'Rock') {
+                        choiceDisplay[1].textContent =
+                            'Player Wins: Paper covers Rock.';
+                    }
+                } else if (playerSelection.name === 'Scissors') {
+                    if (comSelection.name === 'Rock') {
+                        choiceDisplay[1].textContent =
+                            'Computer Wins: Rock crushes Scissors.';
+                    } else if (comSelection.name === 'Paper') {
+                        choiceDisplay[1].textContent =
+                            'Player Wins: Scissors cuts Paper.';
+                    }
+                }
+
                 go.hidden = true;
                 playAgain.hidden = false;
                 displayIcon.classList.remove('fa-hand-scissors');
